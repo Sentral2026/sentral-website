@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Terms of Use — Sentral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --black:#141414;--ink:#1a1a1a;--cream:#f5f3ef;--gold:#c8b89a;--gold-d:#2a1f10;
+  --mid:#6b6560;--lt:#9a9490;--white:#ffffff;
+  --rule:rgba(255,255,255,.08);--ruleD:rgba(0,0,0,.09);
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"DM Sans",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--black);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased}
+/* ══ NAV ══ */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--black);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid var(--rule)}
+.nav-logo{font-family:var(--serif);font-size:1.05rem;color:var(--white);letter-spacing:.18em;text-decoration:none}
+.nav-links{display:flex;align-items:stretch;height:64px}
+.nav-link{display:flex;align-items:center;padding:0 18px;font-size:.75rem;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+.nav-link:hover{color:var(--white)}
+.nav-link.active{color:var(--white);border-color:var(--gold)}
+.nav-ctas{display:flex;gap:10px;align-items:center}
+.btn-sn{font-size:.72rem;font-weight:500;padding:8px 18px;border-radius:2px;background:var(--gold);color:var(--gold-d);border:none;cursor:pointer;text-decoration:none;transition:background .15s;white-space:nowrap;letter-spacing:.04em}
+.btn-sn:hover{background:#d9cbb0}
+.hamburger{background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px;align-items:flex-end}
+.ham-line{display:block;height:1.5px;background:var(--white);transition:width .3s,transform .3s,opacity .3s}
+.ham-line:nth-child(1){width:22px}
+.ham-line:nth-child(2){width:16px}
+.ham-line:nth-child(3){width:22px}
+.hamburger[aria-expanded=true] .ham-line:nth-child(1){width:22px;transform:translateY(6.5px) rotate(45deg)}
+.hamburger[aria-expanded=true] .ham-line:nth-child(2){opacity:0;width:0}
+.hamburger[aria-expanded=true] .ham-line:nth-child(3){width:22px;transform:translateY(-6.5px) rotate(-45deg)}
+.ham-panel{position:fixed;top:64px;right:0;width:360px;height:calc(100vh - 64px);background:var(--black);z-index:199;transform:translateX(100%);transition:transform .35s cubic-bezier(.22,.68,0,1.2);border-left:1px solid var(--rule);overflow-y:auto;pointer-events:none}
+.ham-panel.open{transform:translateX(0);pointer-events:auto}
+.ham-panel-inner{padding:40px 36px}
+.ham-nav{display:flex;flex-direction:column;gap:2px;margin-bottom:32px}
+.ham-link{display:block;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none}
+.ham-link-title{display:block;font-family:var(--serif);font-size:1.25rem;color:var(--white);margin-bottom:4px}
+.ham-link-sub{display:block;font-size:.72rem;color:rgba(255,255,255,.35);letter-spacing:.03em}
+.ham-footer{display:flex;flex-direction:column;gap:10px}
+.ham-book{display:block;padding:12px 20px;background:var(--gold);color:var(--gold-d);font-size:.78rem;font-weight:500;text-decoration:none;border-radius:2px;text-align:center;letter-spacing:.04em}
+@media(max-width:900px){.site-nav{padding:0 20px}.nav-links{display:none}}
+
+
+.page-header{margin-top:64px;background:var(--black);padding:80px 64px 64px}
+.page-header-inner{max-width:860px;margin:0 auto}
+.page-eyebrow{font-size:.58rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block}
+.page-h{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4.2rem);font-weight:300;color:var(--white);line-height:1.06;margin-bottom:16px}
+.page-meta{font-size:.72rem;color:rgba(255,255,255,.3);letter-spacing:.06em}
+
+.policy-layout{max-width:1100px;margin:0 auto;padding:72px 64px 96px;display:grid;grid-template-columns:220px 1fr;gap:72px;align-items:start}
+
+.policy-toc{position:sticky;top:88px}
+.policy-toc-title{font-size:.56rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:var(--lt);margin-bottom:16px;display:block}
+.policy-toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+.policy-toc-list li a{display:block;font-size:.72rem;color:var(--lt);text-decoration:none;padding:7px 12px 7px 16px;border-left:2px solid transparent;transition:color .2s,border-color .2s;line-height:1.4}
+.policy-toc-list li a:hover{color:var(--black);border-color:var(--gold)}
+.policy-toc-list li a.active{color:var(--black);border-color:var(--gold);font-weight:400}
+
+.policy-intro{font-size:.88rem;line-height:1.95;color:var(--mid);padding-bottom:40px;margin-bottom:48px;border-bottom:1px solid var(--ruleD)}
+.policy-section{margin-bottom:52px;scroll-margin-top:96px}
+.policy-section-num{font-size:.56rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.policy-section-title{font-family:var(--serif);font-size:1.55rem;font-weight:400;color:var(--black);margin-bottom:20px;line-height:1.2;padding-bottom:14px;border-bottom:1px solid var(--ruleD)}
+.policy-body{font-size:.84rem;line-height:1.95;color:var(--mid)}
+.policy-body p{margin-bottom:14px}
+.policy-body p:last-child{margin-bottom:0}
+.policy-body ul{margin:10px 0 14px;display:flex;flex-direction:column;gap:8px;list-style:none}
+.policy-body ul li{padding-left:20px;position:relative;font-size:.84rem;line-height:1.85;color:var(--mid)}
+.policy-body ul li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:1px;background:var(--gold)}
+.policy-body strong{font-weight:500;color:var(--black)}
+.policy-body a{color:var(--black);text-decoration:underline;text-decoration-color:rgba(200,184,154,.5)}
+.policy-body a:hover{color:var(--gold)}
+.policy-body .caps{font-size:.78rem;line-height:1.85;text-transform:none;font-weight:400;color:var(--mid)}
+.policy-highlight{background:var(--white);border-left:3px solid var(--gold);padding:20px 24px;margin:18px 0;font-size:.84rem;line-height:1.85;color:var(--mid)}
+.policy-highlight strong{font-weight:500;color:var(--black)}
+.policy-contact-box{background:var(--black);padding:28px 32px;margin-top:20px;border-radius:2px}
+.policy-contact-box-title{font-family:var(--serif);font-size:1.05rem;color:var(--white);margin-bottom:10px}
+.policy-contact-box-body{font-size:.78rem;line-height:1.9;color:rgba(255,255,255,.45)}
+.policy-contact-box-body a{color:var(--gold);text-decoration:none}
+.policy-contact-box-body a:hover{text-decoration:underline}
+
+/* ══ FOOTER ══ */
+.site-footer{background:var(--black);color:rgba(255,255,255,.45);padding:64px 64px 32px;border-top:1px solid var(--rule)}
+.footer-main{max-width:1400px;margin:0 auto 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:48px}
+.footer-col-head{font-family:var(--serif);font-size:.88rem;color:var(--white);display:block;margin-bottom:16px;letter-spacing:.02em}
+.footer-link{display:block;font-size:.72rem;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:10px;letter-spacing:.04em;transition:color .2s}
+.footer-link:hover{color:var(--white)}
+.footer-bottom{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--rule)}
+.footer-copy{font-size:.65rem;color:rgba(255,255,255,.2)}
+.footer-legal{display:flex;gap:20px}
+.footer-legal-link{font-size:.65rem;color:rgba(255,255,255,.2);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.footer-legal-link:hover{color:rgba(255,255,255,.5)}
+
+@media(max-width:900px){
+  .site-nav{padding:0 20px}.nav-links{display:none}
+  .page-header{padding:56px 24px 48px}
+  .policy-layout{grid-template-columns:1fr;padding:48px 24px 72px;gap:0}
+  .policy-toc{display:none}
+  .site-footer{padding:48px 24px 24px}.footer-main{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:540px){.footer-main{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+    <a class="nav-logo" href="sentral-fullpage.html">SEN+RAL</a>
+    <div class="nav-links">
+      <a class="nav-link" href="sentral-stay.html">Stay With Us</a>
+      <a class="nav-link" href="sentral-live2.html">Live With Us</a>
+      <a class="nav-link" href="sentral-partner.html">Partner With Us</a>
+    </div>
+    <div class="nav-ctas">
+      <a class="btn-sn" href="sentral-stay.html">Book a Stay</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span>
+      </button>
+    </div>
+    <div class="ham-panel" id="mobileMenu" aria-hidden="true">
+      <div class="ham-panel-inner">
+        <nav class="ham-nav" aria-label="Main menu">
+          <a class="ham-link" href="sentral-stay.html"><span class="ham-link-title">Stay With Us</span><span class="ham-link-sub">Furnished stays, 1 night to a whole summer</span></a>
+          <a class="ham-link" href="sentral-live2.html"><span class="ham-link-title">Live With Us</span><span class="ham-link-sub">Apartment living, residentially priced</span></a>
+          <a class="ham-link" href="sentral-partner.html"><span class="ham-link-title">Partner With Us</span><span class="ham-link-sub">Institutional-grade property management</span></a>
+        </nav>
+        <div class="ham-footer">
+          <a class="ham-book" href="sentral-stay.html">Book a Stay &nbsp;&rarr;</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="page-eyebrow">Legal</span>
+    <h1 class="page-h">Terms of Use</h1>
+    <span class="page-meta">BHI Residential Long Term Corporation d/b/a Sentral &nbsp;&middot;&nbsp; www.sentral.com</span>
+  </div>
+</div>
+
+<div class="policy-layout">
+
+  <aside class="policy-toc">
+    <span class="policy-toc-title">Contents</span>
+    <ul class="policy-toc-list">
+      <li><a href="#intro">Introduction</a></li>
+      <li><a href="#cancellation">Cancellation &amp; Payment</a></li>
+      <li><a href="#copyright">Copyrighted Materials</a></li>
+      <li><a href="#hyperlinks">Hyperlinks to This Site</a></li>
+      <li><a href="#thirdparty">Third-Party Links</a></li>
+      <li><a href="#noninterference">Noninterference</a></li>
+      <li><a href="#children">Children</a></li>
+      <li><a href="#disclaimer">Disclaimer of Warranties</a></li>
+      <li><a href="#liability">Limitation of Liability</a></li>
+      <li><a href="#press">Press Releases</a></li>
+      <li><a href="#dmca">Copyright Infringement</a></li>
+      <li><a href="#indemnity">Indemnity</a></li>
+      <li><a href="#general">General Provisions</a></li>
+      <li><a href="#communications">Communications</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <div class="policy-content">
+
+    <div class="policy-intro" id="intro">
+      <p>This website at www.sentral.com (the &ldquo;Website&rdquo;) is made available to you by BHI Residential Long Term Corporation d/b/a Sentral (collectively, &ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;, &ldquo;Sentral&rdquo;). Please read these Terms of Use carefully before accessing, viewing or using the Website. By accessing, viewing or using the Website, you agree to be bound by all the Terms of Use. If you do not agree to all the Terms of Use, you do not have the right to access, view or use the Website.</p>
+      <p style="margin-top:14px">Sentral may modify the Terms of Use from time to time, in the sole discretion of Sentral. You are responsible for complying with the most current version of the Terms of Use posted on the Website. Your use of the Website following any modifications will signify your consent and acceptance of such revised Terms of Use.</p>
+      <p style="margin-top:14px">The Terms of Use do not alter the terms and conditions of any agreement you may have with Sentral or its affiliates. Except as expressly set forth otherwise in a signed agreement between you and Sentral, the Terms of Use are the entire agreement between you and Sentral and supersede all prior or contemporaneous negotiations, discussions or agreements between you and Sentral about this Website.</p>
+    </div>
+
+    <section class="policy-section" id="cancellation">
+      <span class="policy-section-num">01</span>
+      <h2 class="policy-section-title">Cancellation and Payment Timing</h2>
+      <div class="policy-body">
+        <div class="policy-highlight">
+          <strong>Short stays (29 nights or fewer):</strong> Free cancellation until 48 hours before check-in (4pm local time). Credit card on file to guarantee reservation and charged 48 hours prior to arrival. Minimum length of stay requirements may vary. Completion of guest registration portal is required.
+        </div>
+        <div class="policy-highlight">
+          <strong>Extended stays (30 nights or longer):</strong> Cancellation must occur no fewer than 28 days prior to check-in. Credit card payment for thirty percent (30%) of the reservation is collected upon booking. The remaining balance shall be collected seven (7) days prior to arrival. If reservation is confirmed within a week of check-in, full payment is due upon booking confirmation. Completion of guest registration portal is required within 48 hours of booking.
+        </div>
+        <p>When you book on other sites, you&rsquo;ll likely encounter stricter cancellation policies. Always make sure to check a site&rsquo;s cancellation policy before booking and reach out to them directly if you have questions.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="copyright">
+      <span class="policy-section-num">02</span>
+      <h2 class="policy-section-title">Use of Copyrighted Materials / Trademarks</h2>
+      <div class="policy-body">
+        <p>Any materials on the Website, including without limitation any documentation, content, text, data, graphics, images, video and audio clips, interfaces or other materials, information or works of authorship are copyrighted materials (i) owned by Sentral (collectively, the &ldquo;Materials&rdquo;) or (ii) provided by third-party licensors and suppliers to Sentral (collectively, the &ldquo;Third Party Content&rdquo;). All rights not expressly granted in and to the Website, the Materials and the Third Party Content are reserved to their respective owners, subject to copyright and other intellectual property rights under United States and foreign laws and international conventions.</p>
+        <p>The Materials contain trademarks, service marks and trade names which are owned by Sentral and its affiliates. Except as otherwise noted in the Website, you are hereby authorized to view, download, cache, copy and print the Materials solely for your personal, non-commercial use and not for resale or further distribution, subject to the following conditions:</p>
+        <ul>
+          <li>Any copy of the Materials or portion thereof must include all copyright notices appearing on the original.</li>
+          <li>Sentral reserves the right to revoke such authorization at any time, and any such use by you shall be discontinued immediately upon notice from Sentral.</li>
+        </ul>
+        <p>The Third Party Content may also contain brand and product names which are trademarks, service marks or trade names of third parties. Unless you have permission from the owner of the Third Party Content, you agree only to display the Third Party Content on your personal computer solely for your personal or internal business use. You acknowledge and agree that you have no right to download, cache, reproduce, modify, distribute, display, edit, alter or enhance any of the Third Party Content in any manner unless you have permission from the owner of the Third Party Content.</p>
+        <p>Nothing contained in the Website shall be construed as conferring any license or right under any copyright, trade secret, patent, trademark or other intellectual property rights (&ldquo;IP Rights&rdquo;) of Sentral, its affiliates, or any third party. Without limiting the foregoing, unless you have the express prior written consent of Sentral or written permission from a third party, you may not (i) distribute the Website or any content included therein in any medium, (ii) modify the Website or any portion thereof, (iii) access the Materials through any technology other than those provided on the Website, (iv) use the Website or any content therein for any commercial use, or (v) transmit, broadcast, display, sell, license or otherwise exploit the Website for any other purpose without the prior written consent of the respective owners.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="hyperlinks">
+      <span class="policy-section-num">03</span>
+      <h2 class="policy-section-title">Hyperlinks to This Site</h2>
+      <div class="policy-body">
+        <p>You are granted a limited, nonexclusive right to create a &ldquo;hypertext&rdquo; link to the Website provided that such link is to the entry or home page of this Website and does not portray Sentral or any of its products or services in a false, misleading, derogatory, or otherwise defamatory manner. This limited right may be revoked by Sentral at any time for any reason whatsoever.</p>
+        <p>You may not use, frame, or utilize framing techniques to enclose any Sentral trademark, logo or trade name or other proprietary information without the express prior written consent of Sentral. In addition, you may not use any meta-tags or any other &ldquo;hidden text&rdquo; utilizing a Sentral name, trademark, or product name without express written consent from Sentral.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="thirdparty">
+      <span class="policy-section-num">04</span>
+      <h2 class="policy-section-title">Links to Third-Party Websites</h2>
+      <div class="policy-body">
+        <p>The Website may be linked to other websites on the World Wide Web or Internet that are not affiliated with, under the control of, or otherwise maintained by Sentral. If you use these links, you may leave the Website. Sentral has not reviewed any of these third-party sites and does not control and is not responsible for any of these sites or their content. Sentral does not endorse any opinion, recommendation or advice expressed therein, and expressly disclaims any and all liability in connection with such third-party sites.</p>
+        <p>You understand and acknowledge that you may be exposed to content that is inaccurate, offensive, indecent, or objectionable, and you agree to waive any legal or equitable rights or remedies you have or may have against Sentral in connection therewith. If you decide to access any of the third-party sites linked to the Website, you do so entirely at your own risk.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="noninterference">
+      <span class="policy-section-num">05</span>
+      <h2 class="policy-section-title">Noninterference</h2>
+      <div class="policy-body">
+        <p>You shall not circumvent, disable or otherwise interfere with security-related features of the Website or features that prevent or restrict use or copying of any Materials and/or Third Party Content or enforce limitations on use of the Website or any content therein.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="children">
+      <span class="policy-section-num">06</span>
+      <h2 class="policy-section-title">Children</h2>
+      <div class="policy-body">
+        <p>Nothing on this Website is intended to solicit information from minors (people under eighteen (18) years old) or to seek to determine whether the visitor is a minor. If you are under eighteen (18), you are not permitted to submit to us any personally identifiable information. If you are under fourteen (14), it is against the law for us to ask you for that information, and we will not ask for it.</p>
+        <p>Anyone under 18 who wants to obtain any product from Sentral or otherwise submit any personally identifiable information should ask a parent or guardian to do it in his/her own name. If we learn we have collected or received personal information from a child under the age of 14 without verification of parental consent, we will delete that information.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="disclaimer">
+      <span class="policy-section-num">07</span>
+      <h2 class="policy-section-title">Disclaimer of Warranties</h2>
+      <div class="policy-body">
+        <p>Except as may be expressly set forth otherwise in a written agreement between you and Sentral or a Sentral affiliate, Sentral has no special relationship with or fiduciary duty to you.</p>
+        <p class="caps">All use of the Website, including without limitation Materials and Third Party Content, shall be at your own risk and all of the foregoing are provided on an &ldquo;as is&rdquo; basis without warranties of any kind, either express or implied, including without limitation, implied warranties of merchantability, fitness for a particular purpose or non-infringement. Sentral assumes no liability or responsibility for any (i) errors, mistakes, or inaccuracies of Materials and/or Third Party Content, (ii) personal injury or property damage, of any nature whatsoever, resulting from your access to and use of the Website, (iii) any unauthorized access to or use of Sentral&rsquo;s secure servers, (iv) any interruption or cessation of transmission to or use of the Website, (v) any bugs, viruses, trojan horses, or the like which may be transmitted to or through our Website by any third party, and/or (vi) any errors or omissions in any content or for any loss or damage of any kind incurred as a result of the use of any content posted, emailed, transmitted, or otherwise made available via the Website. Some states do not allow limitations on how long an implied warranty lasts, so the above limitations may not apply to you.</p>
+        <p>To the extent Sentral is managing a property where you are renting or buying a home, you must rely solely on your own investigation and conclusions regarding such home. Information on the Website should not be relied upon for accuracy, timeliness and completeness and projections, forecasts and estimates on the Website are not guarantees of current or future performance.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="liability">
+      <span class="policy-section-num">08</span>
+      <h2 class="policy-section-title">Limitation of Liability</h2>
+      <div class="policy-body">
+        <p class="caps">In no event shall Sentral be liable to you or any third party claiming through you for any damages in connection with your use of the Website, your inability to use the Website or any content appearing on the Website. In no event will Sentral be liable to you or any third party claiming through you for any indirect, consequential, exemplary, punitive, special or incidental damages, including without limitation, damages arising from claims related to personal injury or death, loss of data, lost revenue, lost profits, loss of use or other economic advantage, change in applicable government regulations, regardless of the form of the action and regardless of whether Sentral has been advised of the possibility of such damage. Notwithstanding the foregoing limitations, in no event will the total, cumulative liability of Sentral for damages under the Terms of Use exceed one hundred dollars ($100.00). Some states do not allow the exclusion or limitation of incidental or consequential damages, so the above limitations and exclusions may not apply to you.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="press">
+      <span class="policy-section-num">09</span>
+      <h2 class="policy-section-title">Press Releases</h2>
+      <div class="policy-body">
+        <p>The information contained within press releases issued by Sentral and its affiliates should not be deemed accurate or current except as of the date the release was posted. Sentral and its affiliates have no intention of updating, and specifically disclaim any duty to update, the information in its press releases.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="dmca">
+      <span class="policy-section-num">10</span>
+      <h2 class="policy-section-title">Copyright Infringement Policy</h2>
+      <div class="policy-body">
+        <p>Sentral does not knowingly permit copyright infringing activities on the Website. If a person is a copyright owner or an agent of the owner and believes that any content posted on the Website infringes upon another&rsquo;s copyrights, such person may submit a notification to us pursuant to the Digital Millennium Copyright Act (&ldquo;DMCA&rdquo;).</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="indemnity">
+      <span class="policy-section-num">11</span>
+      <h2 class="policy-section-title">Indemnity</h2>
+      <div class="policy-body">
+        <p>You agree to defend, indemnify and hold harmless Sentral and its affiliates, officers, directors, owners, operators, employees, licensors and agents, from and against any and all claims, actions, demands, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney&rsquo;s fees) arising from, related to or in connection with: (i) your use of and access to the Website, including without limitation any Materials contained herein; (ii) your violation of any of these Terms of Use; and/or (iii) your violation of any third-party right, including without limitation any Third Party Content or any other third-party copyright, property, or privacy right in connection with your use of or access to the Website.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="general">
+      <span class="policy-section-num">12</span>
+      <h2 class="policy-section-title">General Provisions</h2>
+      <div class="policy-body">
+        <p>Enforcement of the Terms of Use will be governed by Colorado law, excluding its conflict and choice of law principles. The exclusive jurisdiction and venue for any claims arising out of or related to the Terms of Use or your use of the Website will lie in the state or federal courts located in Colorado and you irrevocably agree to submit to the jurisdiction of such courts.</p>
+        <p>The failure of Sentral to enforce any right or provision in the Terms of Use will not constitute a waiver of such right or provision unless acknowledged and agreed to by Sentral in writing. In the event that a court of competent jurisdiction finds any provision of these Terms of Use to be illegal, invalid or unenforceable, the remaining portions will remain in full force and effect.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="communications">
+      <span class="policy-section-num">13</span>
+      <h2 class="policy-section-title">Communications from Sentral</h2>
+      <div class="policy-body">
+        <p>You agree that we, our representative(s), or agent(s) may contact you using any contact information, including any phone number (i) you have provided to us, (ii) from which you called us, or (iii) which we obtained and through which we reasonably believe we can reach you. You agree we may use any means to contact you. This may include calls made to your cellular phone using an automatic telephone dialing system, artificial or prerecorded voice messages, text messages, e-mail, and calls to your phone. You agree to promptly notify us if you change any contact information you provide to us. You are responsible for any service provider charges as a result of us contacting you.</p>
+        <p>You may receive transaction-related communications from us regarding your reservation or an inquiry about a property. Because these communications are necessary for us to provide you with requested services, you cannot opt out of such communications.</p>
+        <p>You may receive marketing communications from Sentral as permitted by law, but we value relevancy when communicating with our guests. You may choose to opt out of receiving future marketing messages from us. Please note that if you complete a booking and you opt out of receiving commercial messages from us, you will still continue to receive transactional messages from us regarding operational issues surrounding your reservation and/or your account.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="contact">
+      <span class="policy-section-num">14</span>
+      <h2 class="policy-section-title">Contact Us</h2>
+      <div class="policy-body">
+        <p>If you have any questions regarding the Website, please contact Sentral.</p>
+        <div class="policy-contact-box">
+          <div class="policy-contact-box-title">Sentral Legal</div>
+          <div class="policy-contact-box-body">
+            BHI Residential Long Term Corporation d/b/a Sentral<br/>
+            1550 Larimer Street, Suite 312<br/>
+            Denver, Colorado 80202<br/><br/>
+            <a href="mailto:questions@sentral.com">questions@sentral.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-main">
+    <div class="footer-col">
+      <span class="footer-col-head">Stay With Us</span>
+      <a class="footer-link" href="sentral-stay.html">Book a Stay</a>
+      <a class="footer-link" href="sentral-sentralplus.html">SentralPlus</a>
+      <a class="footer-link" href="sentral-group.html">Group Business</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-head">Partner With Us</span>
+      <a class="footer-link" href="sentral-partner.html">Partner with us</a>
+      <a class="footer-link" href="sentral-careers.html">Careers</a>
+      <a class="footer-link" href="sentral-press.html">Press</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-head">Live With Us</span>
+      <a class="footer-link" href="sentral-live2.html">Find a Home</a>
+      <a class="footer-link" href="sentral-experience.html">The Experience</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-head">Support</span>
+      <a class="footer-link" href="#">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 BHI Holdings. All rights reserved.</span>
+    <div class="footer-legal">
+      <a class="footer-legal-link" href="sentral-privacy.html">Privacy</a>
+      <a class="footer-legal-link" href="sentral-terms.html">Terms</a>
+      <a class="footer-legal-link" href="#">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const btn = document.getElementById('hamburgerBtn');
+  const panel = document.getElementById('mobileMenu');
+  if (!btn || !panel) return;
+  btn.addEventListener('click', function() {
+    const open = panel.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    panel.setAttribute('aria-hidden', !open);
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && panel.classList.contains('open')) {
+      panel.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+    }
+  });
+})();
+
+(function() {
+  const links = document.querySelectorAll('.policy-toc-list a');
+  const sections = document.querySelectorAll('.policy-section');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+id));
+      }
+    });
+  }, {threshold: 0.3, rootMargin: '-80px 0px -60% 0px'});
+  sections.forEach(s => obs.observe(s));
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Privacy Policy — Sentral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --black:#141414;--ink:#1a1a1a;--cream:#f5f3ef;--gold:#c8b89a;--gold-d:#2a1f10;
+  --mid:#6b6560;--lt:#9a9490;--white:#ffffff;
+  --rule:rgba(255,255,255,.08);--ruleD:rgba(0,0,0,.09);
+  --serif:"Cormorant Garamond",Georgia,serif;
+  --sans:"DM Sans",system-ui,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--black);font-family:var(--sans);font-weight:300;-webkit-font-smoothing:antialiased}
+/* ══ NAV ══ */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:var(--black);height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;border-bottom:1px solid var(--rule)}
+.nav-logo{font-family:var(--serif);font-size:1.05rem;color:var(--white);letter-spacing:.18em;text-decoration:none}
+.nav-links{display:flex;align-items:stretch;height:64px}
+.nav-link{display:flex;align-items:center;padding:0 18px;font-size:.75rem;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.55);text-decoration:none;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap}
+.nav-link:hover{color:var(--white)}
+.nav-link.active{color:var(--white);border-color:var(--gold)}
+.nav-ctas{display:flex;gap:10px;align-items:center}
+.btn-sn{font-size:.72rem;font-weight:500;padding:8px 18px;border-radius:2px;background:var(--gold);color:var(--gold-d);border:none;cursor:pointer;text-decoration:none;transition:background .15s;white-space:nowrap;letter-spacing:.04em}
+.btn-sn:hover{background:#d9cbb0}
+.hamburger{background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px;align-items:flex-end}
+.ham-line{display:block;height:1.5px;background:var(--white);transition:width .3s,transform .3s,opacity .3s}
+.ham-line:nth-child(1){width:22px}
+.ham-line:nth-child(2){width:16px}
+.ham-line:nth-child(3){width:22px}
+.hamburger[aria-expanded=true] .ham-line:nth-child(1){width:22px;transform:translateY(6.5px) rotate(45deg)}
+.hamburger[aria-expanded=true] .ham-line:nth-child(2){opacity:0;width:0}
+.hamburger[aria-expanded=true] .ham-line:nth-child(3){width:22px;transform:translateY(-6.5px) rotate(-45deg)}
+.ham-panel{position:fixed;top:64px;right:0;width:360px;height:calc(100vh - 64px);background:var(--black);z-index:199;transform:translateX(100%);transition:transform .35s cubic-bezier(.22,.68,0,1.2);border-left:1px solid var(--rule);overflow-y:auto;pointer-events:none}
+.ham-panel.open{transform:translateX(0);pointer-events:auto}
+.ham-panel-inner{padding:40px 36px}
+.ham-nav{display:flex;flex-direction:column;gap:2px;margin-bottom:32px}
+.ham-link{display:block;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.06);text-decoration:none}
+.ham-link-title{display:block;font-family:var(--serif);font-size:1.25rem;color:var(--white);margin-bottom:4px}
+.ham-link-sub{display:block;font-size:.72rem;color:rgba(255,255,255,.35);letter-spacing:.03em}
+.ham-footer{display:flex;flex-direction:column;gap:10px}
+.ham-book{display:block;padding:12px 20px;background:var(--gold);color:var(--gold-d);font-size:.78rem;font-weight:500;text-decoration:none;border-radius:2px;text-align:center;letter-spacing:.04em}
+@media(max-width:900px){.site-nav{padding:0 20px}.nav-links{display:none}}
+
+
+/* ══ PAGE HEADER ══ */
+.page-header{margin-top:64px;background:var(--black);padding:80px 64px 64px}
+.page-header-inner{max-width:860px;margin:0 auto}
+.page-eyebrow{font-size:.58rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:block}
+.page-h{font-family:var(--serif);font-size:clamp(2.6rem,5vw,4.2rem);font-weight:300;color:var(--white);line-height:1.06;margin-bottom:16px}
+.page-meta{font-size:.72rem;color:rgba(255,255,255,.3);letter-spacing:.06em}
+
+/* ══ LAYOUT ══ */
+.policy-layout{max-width:1100px;margin:0 auto;padding:72px 64px 96px;display:grid;grid-template-columns:220px 1fr;gap:72px;align-items:start}
+
+/* ══ STICKY TOC ══ */
+.policy-toc{position:sticky;top:88px}
+.policy-toc-title{font-size:.56rem;font-weight:500;text-transform:uppercase;letter-spacing:.22em;color:var(--lt);margin-bottom:16px;display:block}
+.policy-toc-list{list-style:none;display:flex;flex-direction:column;gap:2px}
+.policy-toc-list li a{
+  display:block;font-size:.72rem;color:var(--lt);text-decoration:none;
+  padding:7px 12px 7px 16px;border-left:2px solid transparent;
+  transition:color .2s,border-color .2s;line-height:1.4;
+}
+.policy-toc-list li a:hover{color:var(--black);border-color:var(--gold)}
+.policy-toc-list li a.active{color:var(--black);border-color:var(--gold);font-weight:400}
+
+/* ══ CONTENT ══ */
+.policy-content{}
+.policy-intro{
+  font-size:.88rem;line-height:1.95;color:var(--mid);
+  padding-bottom:40px;margin-bottom:48px;
+  border-bottom:1px solid var(--ruleD);
+}
+.policy-intro ul{margin:14px 0 0 0;display:flex;flex-direction:column;gap:8px;list-style:none}
+.policy-intro ul li{padding-left:20px;position:relative;font-size:.84rem;line-height:1.8;color:var(--mid)}
+.policy-intro ul li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:1px;background:var(--gold)}
+
+.policy-section{margin-bottom:52px;scroll-margin-top:96px}
+.policy-section-num{font-size:.56rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;display:block}
+.policy-section-title{
+  font-family:var(--serif);font-size:1.55rem;font-weight:400;
+  color:var(--black);margin-bottom:20px;line-height:1.2;
+  padding-bottom:14px;border-bottom:1px solid var(--ruleD);
+}
+.policy-body{font-size:.84rem;line-height:1.95;color:var(--mid)}
+.policy-body p{margin-bottom:14px}
+.policy-body p:last-child{margin-bottom:0}
+.policy-body ul{margin:10px 0 14px;display:flex;flex-direction:column;gap:8px;list-style:none}
+.policy-body ul li{padding-left:20px;position:relative;font-size:.84rem;line-height:1.85;color:var(--mid)}
+.policy-body ul li::before{content:"";position:absolute;left:0;top:10px;width:6px;height:1px;background:var(--gold)}
+.policy-body strong{font-weight:500;color:var(--black)}
+.policy-body a{color:var(--black);text-decoration:underline;text-decoration-color:rgba(200,184,154,.5)}
+.policy-body a:hover{color:var(--gold)}
+.policy-body .nested{margin:10px 0 4px 20px}
+.policy-body .nested li::before{background:rgba(200,184,154,.4)}
+
+.policy-contact-box{
+  background:var(--black);padding:28px 32px;margin-top:20px;border-radius:2px;
+}
+.policy-contact-box-title{font-family:var(--serif);font-size:1.05rem;color:var(--white);margin-bottom:10px}
+.policy-contact-box-body{font-size:.78rem;line-height:1.9;color:rgba(255,255,255,.45)}
+.policy-contact-box-body a{color:var(--gold);text-decoration:none}
+.policy-contact-box-body a:hover{text-decoration:underline}
+
+/* ══ FOOTER ══ */
+.site-footer{background:var(--black);color:rgba(255,255,255,.45);padding:64px 64px 32px;border-top:1px solid var(--rule)}
+.footer-main{max-width:1400px;margin:0 auto 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:48px}
+.footer-col-head{font-family:var(--serif);font-size:.88rem;color:var(--white);display:block;margin-bottom:16px;letter-spacing:.02em}
+.footer-link{display:block;font-size:.72rem;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:10px;letter-spacing:.04em;transition:color .2s}
+.footer-link:hover{color:var(--white)}
+.footer-bottom{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding-top:24px;border-top:1px solid var(--rule)}
+.footer-copy{font-size:.65rem;color:rgba(255,255,255,.2)}
+.footer-legal{display:flex;gap:20px}
+.footer-legal-link{font-size:.65rem;color:rgba(255,255,255,.2);text-decoration:none;letter-spacing:.04em;transition:color .2s}
+.footer-legal-link:hover{color:rgba(255,255,255,.5)}
+@media(max-width:900px){.site-footer{padding:48px 24px 24px}.footer-main{grid-template-columns:1fr 1fr;gap:32px}}
+@media(max-width:540px){.footer-main{grid-template-columns:1fr}}
+
+
+@media(max-width:900px){
+  .site-nav{padding:0 20px}.nav-links{display:none}
+  .page-header{padding:56px 24px 48px}
+  .policy-layout{grid-template-columns:1fr;padding:48px 24px 72px;gap:0}
+  .policy-toc{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Main navigation">
+    <a class="nav-logo" href="sentral-fullpage.html">SEN+RAL</a>
+    <div class="nav-links">
+      <a class="nav-link" href="sentral-stay.html">Stay With Us</a>
+      <a class="nav-link" href="sentral-live2.html">Live With Us</a>
+      <a class="nav-link" href="sentral-partner.html">Partner With Us</a>
+    </div>
+    <div class="nav-ctas">
+      <a class="btn-sn" href="sentral-stay.html">Book a Stay</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span>
+      </button>
+    </div>
+    <div class="ham-panel" id="mobileMenu" aria-hidden="true">
+      <div class="ham-panel-inner">
+        <nav class="ham-nav" aria-label="Main menu">
+          <a class="ham-link" href="sentral-stay.html"><span class="ham-link-title">Stay With Us</span><span class="ham-link-sub">Furnished stays, 1 night to a whole summer</span></a>
+          <a class="ham-link" href="sentral-live2.html"><span class="ham-link-title">Live With Us</span><span class="ham-link-sub">Apartment living, residentially priced</span></a>
+          <a class="ham-link" href="sentral-partner.html"><span class="ham-link-title">Partner With Us</span><span class="ham-link-sub">Institutional-grade property management</span></a>
+        </nav>
+        <div class="ham-footer">
+          <a class="ham-book" href="sentral-stay.html">Book a Stay &nbsp;&rarr;</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<div class="page-header">
+  <div class="page-header-inner">
+    <span class="page-eyebrow">Legal</span>
+    <h1 class="page-h">Privacy Policy</h1>
+    <span class="page-meta">BHI Residential Long Term Corporation d/b/a Sentral &nbsp;&middot;&nbsp; Last updated April 2026</span>
+  </div>
+</div>
+
+<div class="policy-layout">
+
+  <!-- STICKY TOC -->
+  <aside class="policy-toc">
+    <span class="policy-toc-title">Contents</span>
+    <ul class="policy-toc-list">
+      <li><a href="#applies">How This Policy Applies</a></li>
+      <li><a href="#types">Personal Information We Collect</a></li>
+      <li><a href="#use">How We Use Personal Information</a></li>
+      <li><a href="#share">How We Share Personal Information</a></li>
+      <li><a href="#tech">Data Collection Technologies</a></li>
+      <li><a href="#dnt">Do Not Track</a></li>
+      <li><a href="#security">Data Security</a></li>
+      <li><a href="#california">California Privacy Rights</a></li>
+      <li><a href="#minors">Persons Under 13</a></li>
+      <li><a href="#links">Third-Party Websites</a></li>
+      <li><a href="#changes">Changes to This Policy</a></li>
+      <li><a href="#email">Email Consent &amp; Opt-Out</a></li>
+      <li><a href="#nonus">Non-U.S. Residents</a></li>
+      <li><a href="#access">Access and Choice</a></li>
+      <li><a href="#contact">How to Contact Us</a></li>
+    </ul>
+  </aside>
+
+  <!-- CONTENT -->
+  <div class="policy-content">
+
+    <!-- INTRO -->
+    <div class="policy-intro">
+      <p>This Privacy Policy explains how BHI Residential Long Term Corporation and its affiliates doing business as &ldquo;Sentral&rdquo; (collectively, &ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) collect, use, and disclose the Personal Information we collect from or about you or which you may provide to us as part of our relationship with you, including when you:</p>
+      <ul>
+        <li>Provide Personal Information through this website or through any residential portal, prospective resident portal or online payment portal (each, a &ldquo;Website&rdquo;);</li>
+        <li>Provide Personal Information to us offline; and</li>
+        <li>Provide Personal Information indirectly through third-party advertiser websites.</li>
+      </ul>
+      <p style="margin-top:14px">Before visiting our Website or engaging with us, or otherwise providing Personal Information to us, please review this Privacy Policy carefully. If you do not wish to have your Personal Information collected, used or disclosed as set forth in this Privacy Policy, you must refrain from using our Website or disclosing your Personal Information to us.</p>
+    </div>
+
+    <!-- HOW IT APPLIES -->
+    <section class="policy-section" id="applies">
+      <span class="policy-section-num">01</span>
+      <h2 class="policy-section-title">How Our Privacy Policy Applies</h2>
+      <div class="policy-body">
+        <p>This Privacy Policy may be revised from time to time, so please revisit this page to remain fully informed of our privacy practices (see &ldquo;Changes to Privacy Policy&rdquo; section below).</p>
+      </div>
+    </section>
+
+    <!-- TYPES -->
+    <section class="policy-section" id="types">
+      <span class="policy-section-num">02</span>
+      <h2 class="policy-section-title">Types of Personal Information We Collect</h2>
+      <div class="policy-body">
+        <p>&ldquo;Personal Information&rdquo; is information that identifies, relates to, describes, is capable of being associated with, or could reasonably be linked, directly or indirectly, with you or your household, such as your name, email address, IP address, telephone number, and broader categories of information such as your professional, educational or health information, commercial information and internet activity.</p>
+        <p>We collect your Personal Information in connection with any of your interactions with us or one of our properties, either as a prospective resident, a resident, a homeshare host, a guest or an attendee at one of our events. We also collect Personal Information through the Websites. When you make a payment through any of the Websites, we collect information about your payment history and payment information. Although we use a third-party payment processor to facilitate any payments made on our Websites, we retain this information for accounting purposes and to respond to inquiries, communicate with you about your account, and for other business purposes. We may collect Personal Information directly from you and automatically through our use of cookies and other data collection technologies on our Websites. We may also collect your Personal Information from third-party sources, such as social media platforms (if you interact with us through your social media account), background check providers, credit bureaus, and third parties to whom you direct us to collect your Personal Information. We will treat Personal Information collected from third-party sources in accordance with this Privacy Policy but we are not responsible or liable for the accuracy of the information provided by third parties or for the third-party policies or practices.</p>
+        <p>The categories of Personal Information that we collect from you depend on your interactions and engagement with us. For example, we collect:</p>
+        <ul>
+          <li><strong>Direct Identifiers</strong> — such as your name, address, date of birth, social security number, drivers&rsquo; license number and information, gender, age, IP address, online identifiers, email address, phone number, payment card or financial account numbers and related information required to process payments, and other similar identifiers. We collect this information to verify your identity and information, screen potential residents, pursue collections activity, communicate with you, process your payments, and provide you with access to your resident portal account.</li>
+          <li><strong>Commercial Information</strong> — such as the property, leasing, homesharing, management and other services you receive from us, information about property you have purchased, rented or leased from others, insurance information, and number of occupants. We collect this information to maintain client records, identify trends in our client relationships, process insurance claims, screen potential residents, pursue collections activity, and conduct business analytics.</li>
+          <li><strong>Internet Activity Information</strong> — such as your browsing history, search history, cookies, browser and device type, and information regarding your interactions with pages you visit on our Websites. We collect this information to understand your use of our Websites and your account and for targeted marketing and lead management.</li>
+          <li><strong>Professional and Employment-Related Information</strong> — such as information about your current employment, salary, professional degrees and certifications, and education background. We collect this information to verify your identity, perform background and regulatory compliance checks, and other related processes.</li>
+          <li><strong>Profile Information</strong> — such as information about your preferences and characteristics. We collect this information in order to understand your preferences and tailor our services and communications to you.</li>
+        </ul>
+        <p>We intend to implement this Privacy Policy in a manner consistent with applicable employment laws. To the extent that such applicable employment laws are in conflict with this Privacy Policy, we will act in accordance with such applicable employment laws.</p>
+      </div>
+    </section>
+
+    <!-- USE -->
+    <section class="policy-section" id="use">
+      <span class="policy-section-num">03</span>
+      <h2 class="policy-section-title">How We Use and Disclose Personal Information</h2>
+      <div class="policy-body">
+        <p>In addition to the purposes for collection described above, we also collect each category of information for the purpose of maintaining our client relationship with you and performing services, which include:</p>
+        <ul>
+          <li>Onboarding you as a resident, maintaining or servicing your account, processing and fulfilling your requests, and other activities that are part of our property, leasing, homesharing, management and service offerings;</li>
+          <li>Conducting verification and background checks as part of our business acceptance, finance, administration and marketing processes, including anti-money laundering, conflict, reputational and financial checks;</li>
+          <li>Taking steps to improve our provision of property, leasing and services to you, including to run analytics, improve our artificial intelligence tools, assess the quality of our services, and for other related internal business purposes;</li>
+          <li>Confirming your balances, payment history, information pertaining to your creditworthiness, assets, income or liabilities, and managing other aspects of your financial transactions, which includes requesting a credit report in connection with leasing applications;</li>
+          <li>Sending you messages promoting our property leasing products and services. You may opt-out of receiving certain promotional email messages from us as described in the &ldquo;Opt-out&rdquo; section below;</li>
+          <li>Administering and improving our Websites, including to measure the effectiveness of the Websites, to customize the content and/or layout of our Website for each individual visitor, help diagnose problems with our server, see where Website traffic is coming from, to identify our Website users, to track our visitors&rsquo; use of the Website for internal market research and to notify visitors about updates to the Websites or services;</li>
+          <li>Complying with our legal, regulatory and risk management obligations, including establishing, exercising and/or defending legal claims;</li>
+          <li>Fulfilling any other purpose described in our agreements with you;</li>
+          <li>To complete the leasing process;</li>
+          <li>To contact you in response to your inquiries, comments and suggestions;</li>
+          <li>To contact you when necessary;</li>
+          <li>To assist with management of your amenities and utilities, as listed in your lease;</li>
+          <li>For the specific purpose for which it was volunteered;</li>
+          <li>To improve the services we promote or provide through the Websites or through other means;</li>
+          <li>For special promotions, contests or survey registrations;</li>
+          <li>To ask for your participation in brief surveys and to provide the results thereof;</li>
+          <li>To process your responses to surveys, questions, or other requests;</li>
+          <li>To complete any purchases, payments, or other transactions you may perform at the Website;</li>
+          <li>To notify you about promotions, special offers, and products and services provided by us or our affiliates or partners; and</li>
+          <li>For our internal business purposes.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SHARE -->
+    <section class="policy-section" id="share">
+      <span class="policy-section-num">04</span>
+      <h2 class="policy-section-title">How We Share Your Personal Information</h2>
+      <div class="policy-body">
+        <p>We may share your Personal Information as disclosed to you at the time we collect it, with your consent, and in the following circumstances:</p>
+        <ul>
+          <li><strong>Service Providers</strong> — We may provide your Personal Information to our service providers that help us run and manage our business, such as technology service providers, analytics providers, utility providers, screening companies, rental insurance companies, collections agencies, customer service providers, and our credit card processors.</li>
+          <li><strong>Property Owners, Property Managers, Subsidiaries or Trusted Partners</strong> — We may provide your Personal Information to other third parties with whom we have alliances in connection to providing our products or services, including, without limitation the owner or manager of any property where you may apply or lease, and homesharing companies (such as Airbnb and VRBO).</li>
+          <li><strong>Other Website Providers</strong> — We may provide your Personal Information to other website providers that create additional content for our Website, such as Entrata. Where the terms of the privacy policies or terms of use found on Entrata&rsquo;s website conflict with the terms of our Privacy Policy, the terms of this Privacy Policy shall override.</li>
+          <li><strong>Consumer Reporting Agencies</strong> — We may provide your Personal Information to consumer reporting agencies. If you dispute the accuracy of the information provided, you should notify the consumer reporting agency and contact us regarding the dispute.</li>
+          <li><strong>Prospective Landlords or Lenders</strong> — We may provide your Personal Information to prospective landlords or lenders who may request such Personal Information in connection with approval of any rental application or home purchase.</li>
+          <li><strong>As Required By Law</strong> — We may disclose your Personal Information as required by law, such as to comply with a subpoena or similar legal process. Additionally, we may disclose Personal Information when we believe that disclosure is necessary to protect the safety and security of our property or the property of others. We may also disclose Personal Information in order to protect our rights, such as to investigate fraud or respond to a government request.</li>
+          <li><strong>Corporate Transaction</strong> — In the event we are involved in a merger, reorganization, acquisition or sale of all or a portion of our assets, or other corporate transaction, we may transfer, assign, or disclose your Personal Information as part of that transaction.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TECH -->
+    <section class="policy-section" id="tech">
+      <span class="policy-section-num">05</span>
+      <h2 class="policy-section-title">Data Collection Technologies</h2>
+      <div class="policy-body">
+        <p>We may use cookies, web beacons, and other technologies (collectively, &ldquo;Data Collection Technologies&rdquo;) to help us personalize and enhance your experience on our Website. Our Data Collection Technologies include:</p>
+        <ul>
+          <li><strong>Cookies</strong> — A cookie is a small string of text that is sent by our Websites to your browser and then stored by your browser on your computer&rsquo;s hard drive. Our cookies allow us to personalize your experience on our Websites, make your visit more convenient, and understand how you and others are using our Websites so that we can improve your experience. We use cookies to identify repeat visitors to our Websites and to determine the paths visitors take on our Websites. We also use cookies to determine whether you visited a Website from a particular Internet link or advertisement. We commonly use conversion cookies to determine the amount of times people who click on ads from our Websites also filled out a guest card, signed a lease, or utilized other services we provide. Conversion cookie data may be used in combination with your Google account to link conversion events across different devices you use. We do not use any cookies that store personal information or associate cookie information with personal information you may provide us.</li>
+          <li><strong>Web Beacons</strong> — A web beacon (also referred to as a clear gif, pixel tag or single-pixel gif) is a transparent graphic image used in tandem with cookies that enables us to record a user&rsquo;s actions. We use web beacons to count users who have visited those pages, verify system and server integrity and for similar statistical measures.</li>
+          <li><strong>Google Analytics</strong> — We use Google Analytics to help us understand how users engage with our services. Google Analytics uses cookies to track your interactions with our services, then collects that information and reports it to us, without identifying individual users. This information helps us improve our services so that we can better serve users like you.</li>
+        </ul>
+        <p>Most web browsers automatically accept cookies, but it is possible to change your browser setup so that it does not accept cookies. In order to create a profile on our Websites you must have your cookies enabled.</p>
+      </div>
+    </section>
+
+    <!-- DNT -->
+    <section class="policy-section" id="dnt">
+      <span class="policy-section-num">06</span>
+      <h2 class="policy-section-title">&ldquo;Do Not Track&rdquo; Signals</h2>
+      <div class="policy-body">
+        <p>Some web browsers have &ldquo;Do Not Track&rdquo; or similar features that allow you to tell each website you visit that you do not want your activities on that website tracked. At present, the Websites do not respond to &ldquo;Do Not Track&rdquo; signals and consequently, the Websites will continue to collect information about you even if your browser&rsquo;s &ldquo;Do Not Track&rdquo; feature is activated.</p>
+      </div>
+    </section>
+
+    <!-- SECURITY -->
+    <section class="policy-section" id="security">
+      <span class="policy-section-num">07</span>
+      <h2 class="policy-section-title">Data Security</h2>
+      <div class="policy-body">
+        <p>The security of your Personal Information is important to us. We strive to use commercially reasonable organizational, physical, technical and administrative measures no less stringent than those accepted as standard industry practice to protect Personal Information. However, no data transmission over the Internet or storage system can be guaranteed to be 100% secure. Accordingly, and despite our efforts, we cannot guarantee or warrant the security of any information you transmit to us. Except to the extent provided by law, we are not responsible or liable to you for any lack of privacy or security you may experience. You are fully responsible for taking precautions and providing security measures best suited for your situation and intended use of the Websites and our services. Where we have given you (or where you have chosen) a username and password to access our Platforms, you are responsible for keeping this information confidential and preventing unauthorized access to your account.</p>
+        <p>Where we collect your payment card information, we will comply with all applicable Payment Card Industry Data Security Standards (PCI-DSS).</p>
+      </div>
+    </section>
+
+    <!-- CALIFORNIA -->
+    <section class="policy-section" id="california">
+      <span class="policy-section-num">08</span>
+      <h2 class="policy-section-title">Your California Privacy Rights</h2>
+      <div class="policy-body">
+        <p>We provide California residents the privacy rights required under applicable law, including the California Consumer Privacy Act and Shine the Light law, as further described below.</p>
+        <ul>
+          <li><strong>The right to know.</strong> You have the right to request to know (i) the specific pieces of Personal Information we have about you; (ii) the categories of Personal Information we have collected about you in the last 12 months; (iii) the categories of sources from which that Personal Information was collected; (iv) the categories of your Personal Information that we sold or disclosed in the last 12 months; (v) the categories of third parties to whom your Personal Information was sold or disclosed in the last 12 months; and (vi) the purpose for collecting and selling your Personal Information. We have not sold Personal Information in the preceding 12 months. We do not sell the Personal Information of minors under 13 without the consent from the minor&rsquo;s parent or guardian. We do not sell the Personal Information of minors under 16 years old without the minor&rsquo;s own consent.</li>
+          <li><strong>The right to deletion.</strong> You have the right to request that we delete the Personal Information that we have collected or maintain about you. We may deny your request as permitted by law under certain circumstances, such as if we need to comply with our legal obligations or complete a transaction for which your Personal Information was collected. If we deny your request for deletion, we will let you know the reason why such request was denied.</li>
+          <li><strong>The right to opt out of the sale of your Personal Information.</strong> You have the right to opt out of the sale of your Personal Information. If you do not affirmatively opt out, and you are not a minor, your Personal Information may be sold as disclosed in this Privacy Policy. You can submit your request to opt out of the sale of your Personal Information by submitting a &ldquo;Do not Sell my Personal Information&rdquo; request to <a href="mailto:questions@sentral.com">questions@sentral.com</a>.</li>
+          <li><strong>The right to equal service.</strong> If you choose to exercise any of these rights, we will not discriminate against you in any way. If you exercise certain rights, understand that you may be unable to use or access certain features of the Websites or our services or properties.</li>
+        </ul>
+        <p>You may exercise your right to know and your right to deletion two times a year free of charge. To exercise your right to know or your right to deletion, contact us by email at <a href="mailto:questions@sentral.com">questions@sentral.com</a>.</p>
+        <p>We will take steps to verify your identity before processing your request to know or request to delete. We will not fulfill your request unless you have provided sufficient information for us to reasonably verify you are the individual about whom we collected Personal Information. You may use an authorized agent to submit a request to know or a request to delete.</p>
+        <p>California residents are entitled to request from us once per calendar year certain information regarding our disclosure of their Personal Information to third parties for those third parties&rsquo; direct marketing purposes. You may request information regarding such disclosures by contacting us at <a href="mailto:questions@sentral.com">questions@sentral.com</a>.</p>
+      </div>
+    </section>
+
+    <!-- MINORS -->
+    <section class="policy-section" id="minors">
+      <span class="policy-section-num">09</span>
+      <h2 class="policy-section-title">Persons Under 13 Years of Age</h2>
+      <div class="policy-body">
+        <p>This Website is not intended for or directed to persons under 13 years of age. We do not knowingly collect or maintain information at our Website from those we know are under 13, and we do not permit persons under 13 years of age to become registered users of our Website. If we become aware that we have collected information from an individual under 13 years of age, we will immediately delete such information. No part of our Website is structured to attract anyone under 13. By using our Website you represent that you are not under 13 years of age.</p>
+      </div>
+    </section>
+
+    <!-- LINKS -->
+    <section class="policy-section" id="links">
+      <span class="policy-section-num">10</span>
+      <h2 class="policy-section-title">Links to Third-Party Websites</h2>
+      <div class="policy-body">
+        <p>Our Website may offer links to other websites which may have information policies and practices different from ours. We do not control and are not responsible for the privacy policies or practices or the content of any third-party websites. We encourage you to review the privacy policies of any third-party website prior to providing them with your Personal Information.</p>
+      </div>
+    </section>
+
+    <!-- CHANGES -->
+    <section class="policy-section" id="changes">
+      <span class="policy-section-num">11</span>
+      <h2 class="policy-section-title">Changes to the Privacy Policy</h2>
+      <div class="policy-body">
+        <p>We may update this Privacy Policy at any time to reflect changes in our practices. When we post modifications to this Privacy Policy, we will revise the &ldquo;Last Updated&rdquo; date at the top of this web page. If the changes are material, we will endeavor to notify you in advance of such changes taking place. If you object to any modification, your sole recourse is to notify us that you do not agree and to stop using the Websites and providing us with your Personal Information. Your continued use of the Websites following any changes signifies your acceptance of such changes. We encourage you to periodically review this page for the latest information on our privacy practices.</p>
+      </div>
+    </section>
+
+    <!-- EMAIL -->
+    <section class="policy-section" id="email">
+      <span class="policy-section-num">12</span>
+      <h2 class="policy-section-title">Email Consent and Opt-Out</h2>
+      <div class="policy-body">
+        <p>Your provision of Personal Information through any of our Websites constitutes your affirmative consent that we may contact you by email to provide you with information and notices relating to the property where you reside, and various services available to you at or through that property.</p>
+        <p>We value relevancy when communicating with our residents and guests. To that effect, you may choose to opt out of receiving future commercial email messages from us. Each commercial email sent by us contains a link at the bottom of the email with instructions on how to remove yourself from our email list. Please note that if you are a resident of one of our communities and you opt out of receiving commercial email from us, you will still continue to receive transactional emails from us regarding operational issues surrounding your apartment, your lease, account and/or your community.</p>
+      </div>
+    </section>
+
+    <!-- NON-US -->
+    <section class="policy-section" id="nonus">
+      <span class="policy-section-num">13</span>
+      <h2 class="policy-section-title">Non-U.S. Residents</h2>
+      <div class="policy-body">
+        <p>The Website is intended for use in the United States of America only. If you visit our Website or contact us from outside of the United States of America, please be advised that (i) any information you provide to us or that we automatically collect will be transferred to the United States of America; and (ii) that by using our services or submitting information, you explicitly authorize its transfer to and subsequent processing in the United States of America in accordance with this Privacy Policy. Do not provide your Personal Information to us if you do not want this information to be transferred outside of your country, or if the laws in your country restrict these types of transfers. Your provision of Personal Information to us will be handled in accordance with this Privacy Policy.</p>
+      </div>
+    </section>
+
+    <!-- ACCESS -->
+    <section class="policy-section" id="access">
+      <span class="policy-section-num">14</span>
+      <h2 class="policy-section-title">Access and Choice</h2>
+      <div class="policy-body">
+        <p>You may access and request modification of the Personal Information we maintain about you by contacting us using the contact information below. We will respond to your inquiry within a reasonable timeframe.</p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="policy-section" id="contact">
+      <span class="policy-section-num">15</span>
+      <h2 class="policy-section-title">How to Contact Us</h2>
+      <div class="policy-body">
+        <p>If you have questions or comments about this Privacy Policy or our privacy practices, please contact us at <a href="mailto:questions@sentral.com">questions@sentral.com</a> or by mail at:</p>
+        <div class="policy-contact-box">
+          <div class="policy-contact-box-title">Privacy Team</div>
+          <div class="policy-contact-box-body">
+            BHI Residential Corporation, d/b/a Sentral<br/>
+            Attn: Privacy Team<br/>
+            1550 Larimer Street, Suite 312<br/>
+            Denver, Colorado 80202<br/><br/>
+            <a href="mailto:questions@sentral.com">questions@sentral.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /policy-content -->
+</div><!-- /policy-layout -->
+
+<footer class="site-footer" role="contentinfo">
+  <div class="footer-main">
+    <div class="footer-col">
+      <span class="footer-col-head">Stay With Us</span>
+      <a class="footer-link" href="sentral-stay.html">Book a Stay</a>
+      <a class="footer-link" href="sentral-sentralplus.html">SentralPlus</a>
+      <a class="footer-link" href="sentral-group.html">Group Business</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-head">Partner With Us</span>
+      <a class="footer-link" href="sentral-partner.html">Partner with us</a>
+      <a class="footer-link" href="sentral-careers.html">Careers</a>
+      <a class="footer-link" href="sentral-press.html">Press</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-head">Live With Us</span>
+      <a class="footer-link" href="sentral-live2.html">Find a Home</a>
+      <a class="footer-link" href="sentral-experience.html">The Experience</a>
+    </div>
+    <div class="footer-col">
+      <span class="footer-col-head">Support</span>
+      <a class="footer-link" href="#">Contact Us</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 BHI Holdings. All rights reserved.</span>
+    <div class="footer-legal">
+      <a class="footer-legal-link" href="sentral-privacy.html">Privacy</a>
+      <a class="footer-legal-link" href="sentral-terms.html">Terms</a>
+      <a class="footer-legal-link" href="#">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── HAMBURGER ──
+(function() {
+  const btn = document.getElementById('hamburgerBtn');
+  const panel = document.getElementById('mobileMenu');
+  if (!btn || !panel) return;
+  btn.addEventListener('click', function() {
+    const open = panel.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open);
+    panel.setAttribute('aria-hidden', !open);
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && panel.classList.contains('open')) {
+      panel.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+    }
+  });
+})();
+
+// ── TOC ACTIVE STATE ON SCROLL ──
+(function() {
+  const links = document.querySelectorAll('.policy-toc-list a');
+  const sections = document.querySelectorAll('.policy-section');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#'+id));
+      }
+    });
+  }, {threshold: 0.3, rootMargin: '-80px 0px -60% 0px'});
+  sections.forEach(s => obs.observe(s));
+})();
+</script>
+</body>
+</html>
