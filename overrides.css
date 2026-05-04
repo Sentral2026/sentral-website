@@ -110,12 +110,33 @@ body [class*="serif"], body [class*="display"] {
   color: var(--forest) !important;
 }
 
-/* Hero italic emphasis — was gold, now forest on dark */
+/* Hero italic emphasis — was gold, now forest on dark.
+   Exception: photo-backed hero italics on the homepage (.hero-h1 em)
+   stay white because forest text doesn't read well on bright photos. */
 .hero-h em,
 .hero h1 em,
 .hero h2 em {
   color: var(--forest) !important;
   font-style: italic;
+}
+
+/* Homepage hero (photo carousel) — keep italic emphasis WHITE */
+.hero-h1 em {
+  color: var(--white) !important;
+  font-style: italic;
+}
+
+/* Homepage secondary CTA "Live here" — solid off-black for visibility,
+   complements the forest "Book a Stay" primary button */
+.btn-hg {
+  background: var(--black) !important;
+  color: var(--white) !important;
+  border: 1px solid var(--black) !important;
+}
+.btn-hg:hover {
+  background: var(--ink) !important;
+  border-color: var(--ink) !important;
+  color: var(--white) !important;
 }
 
 /* Section eyebrows on cream — bronze becomes deep forest */
