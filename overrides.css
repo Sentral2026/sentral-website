@@ -231,6 +231,18 @@ body[class*="sentralplus"] .hero-eyebrow,
 
 
 /* ------------------------------------------------------------
+   FULL-BLEED HERO
+   Remove the 64px top gap that exposed the cream body color
+   between the fixed nav and the hero photo. The nav has its
+   own solid background (off-black) so floating it over the
+   hero photo is visually clean and removes the white banner.
+   Hero internal padding still keeps content clear of the nav. */
+.hero {
+  margin-top: 0 !important;
+}
+
+
+/* ------------------------------------------------------------
    4. HERO LEGIBILITY (carried over from v1)
    Layered text-shadow for text on photo backgrounds. Works
    over any image, harmless on dark non-photo heroes.
