@@ -1,0 +1,172 @@
+/* ============================================================
+   Sentral Website — ADA / Accessibility Override Stylesheet
+   ------------------------------------------------------------
+   Temporary corrections to the static prototype. This file is
+   loaded AFTER the inline <style> blocks on every page so its
+   rules win the cascade.
+
+   The WordPress rebuild should bake these targets into the
+   base stylesheet. See ADA_BRIEF.md for the spec.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   1. HERO LEGIBILITY
+   Pages with photo heroes (Stay, Partner, Experience, Careers,
+   Group Business, SentralPlus, Home) all suffer from light text
+   over varied imagery with no scrim. We add:
+     a) a left-side dark gradient overlay
+     b) a subtle text-shadow on hero typography
+   On heroes that already have a black/dark background (Live,
+   Press, Privacy, Terms) the gradient is mostly invisible and
+   the shadow is harmless.
+   ------------------------------------------------------------ */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.30) 45%,
+    rgba(0, 0, 0, 0.00) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-h,
+.hero-eyebrow,
+.hero-sub,
+.hero-stat-n,
+.hero-stat-l,
+.search-label {
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+}
+
+/* Boost faint hero subtitles/labels to readable opacity */
+.hero-sub      { color: rgba(255, 255, 255, 0.85) !important; }
+.hero-stat-l   { color: rgba(255, 255, 255, 0.70) !important; }
+.search-label  { color: rgba(255, 255, 255, 0.70) !important; }
+
+
+/* ------------------------------------------------------------
+   2. CONTRAST: light-gray and gold on cream fail WCAG AA.
+   Cream bg = #f5f3ef (L≈0.896).
+   Old --lt #9a9490 → 2.68:1   ❌
+   Old --gold on cream         → 1.76:1   ❌
+   Replacement targets:
+     #6b6560 (--mid)           → 5.14:1   ✅ AA
+     #5e4a2c (darker bronze)   → 7.10:1   ✅ AAA
+   ------------------------------------------------------------ */
+
+:root {
+  --lt: #6b6560 !important;
+}
+
+/* Filter pills, badges, captions on cream sections */
+.filters-label,
+.f-count,
+.s-popup-loc,
+.s-popup-units {
+  color: #6b6560 !important;
+}
+
+/* Body paragraphs that ended up too light on cream */
+section:not(.hero) p,
+.copy p,
+.body-copy p {
+  color: #3a3633;
+}
+
+/* Eyebrow labels & section captions that use gold on cream:
+   darken to a bronze that still reads as a brand accent */
+.eyebrow,
+[class*="eyebrow"]:not(.hero-eyebrow),
+.section-eyebrow,
+.cap,
+.caption {
+  color: #5e4a2c !important;
+}
+
+
+/* ------------------------------------------------------------
+   3. MINIMUM FONT SIZE — 0.75rem (12px) floor
+   The Experience page has text as small as 0.42rem (~6.7px).
+   ------------------------------------------------------------ */
+
+.hero-eyebrow,
+.hero-stat-l,
+.hero-sub,
+.search-label,
+.filters-label,
+.f-count,
+.f-btn,
+.s-popup-loc,
+.s-popup-units,
+.nav-link,
+.eyebrow,
+[class*="eyebrow"],
+.srp-item-loc,
+.srp-empty,
+.cap,
+.caption,
+small {
+  font-size: max(0.75rem, 1em) !important;
+}
+
+
+/* ------------------------------------------------------------
+   4. NAV CTA — top-right "Book a Stay" was unreadable on
+   the homepage (dark text on dark nav).
+   ------------------------------------------------------------ */
+
+.site-nav a[href*="book"],
+.site-nav button,
+.site-nav .cta,
+.site-nav [class*="cta"] {
+  color: #141414 !important;
+  background-color: #c8b89a;
+}
+
+
+/* ------------------------------------------------------------
+   5. PRESS PAGE — article cards beyond the first row render
+   at near-zero opacity (suspected scroll-fade animation that
+   never fires). Force them visible.
+   ------------------------------------------------------------ */
+
+.press-card,
+.article-card,
+.news-card,
+[class*="press"][class*="card"],
+[class*="article"][class*="card"],
+[class*="news"][class*="item"] {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+
+/* ------------------------------------------------------------
+   6. ACCESSIBILITY BASELINE
+   Visible focus styles (default outlines were suppressed).
+   ------------------------------------------------------------ */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #c8b89a !important;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
