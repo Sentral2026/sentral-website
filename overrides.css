@@ -111,17 +111,19 @@ body [class*="serif"], body [class*="display"] {
 }
 
 /* Hero italic emphasis — was gold, now forest on dark.
-   Exception: photo-backed hero italics on the homepage (.hero-h1 em)
-   stay white because forest text doesn't read well on bright photos. */
+   Excludes the homepage's .hero-h1 (photo carousel) which uses
+   white italic instead — see rule below. */
 .hero-h em,
-.hero h1 em,
 .hero h2 em {
   color: var(--forest) !important;
   font-style: italic;
 }
 
-/* Homepage hero (photo carousel) — keep italic emphasis WHITE */
-.hero-h1 em {
+/* Homepage hero (photo carousel) — italic emphasis stays WHITE because
+   forest text doesn't read well on the bright sunset photo.
+   Specificity bumped (h1.hero-h1) to win over the generic rule above. */
+h1.hero-h1 em,
+.hero h1.hero-h1 em {
   color: var(--white) !important;
   font-style: italic;
 }
