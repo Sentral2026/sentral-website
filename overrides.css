@@ -319,6 +319,25 @@ section.combo-section .combo-right .combo-btn-g:hover {
   margin-top: 0 !important;
 }
 
+/* ------------------------------------------------------------
+   HOMEPAGE HERO TEXT POSITIONING
+   - Wider max-width so "and comfort of home — elevated."
+     fits on one line at desktop widths (was 800px).
+   - More bottom padding so the headline sits higher up on
+     the hero photo (was 80px).
+   ------------------------------------------------------------ */
+.hero-content {
+  max-width: 1200px !important;
+  padding-bottom: 220px !important;
+}
+
+@media (max-width: 767px) {
+  .hero-content {
+    max-width: 100% !important;
+    padding-bottom: 140px !important;
+  }
+}
+
 
 /* ------------------------------------------------------------
    4. HERO LEGIBILITY (carried over from v1)
