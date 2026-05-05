@@ -260,19 +260,29 @@ external font dependency.
 | `h1` | `2.4rem – 3rem` | 400 | Section heroes ("Our core values") |
 | `h2` | `1.6rem – 2rem` | 400 | Subsection headings |
 | `h3` | `1.2rem – 1.4rem` | 400 | Card titles ("Service First") |
-| `body` | `1rem` (16 px) | 400 | Paragraphs |
-| `body-sm` | `0.85rem` | 400 | Caption-adjacent body |
-| `eyebrow` | `0.75rem` minimum | 500 uppercase, letter-spacing 0.18em | "MEMBER BENEFITS", "01 — BUSINESS TRAVEL" |
-| `caption` | `0.75rem` minimum | 400 | Filter labels, badges, metadata |
+| `body` | `1.0625rem` (17 px) on cream / `1rem` on dark | 400 | Paragraphs |
+| `body-sm` | `1rem` (16 px) | 400 | Hero subtitles, secondary body |
+| `bullet-title` | `1rem` (16 px) | 500 | Benefit bullets, list titles |
+| `bullet-desc` | `0.9375rem` (15 px) | 400 | Bullet descriptions, captions |
+| `eyebrow` | `0.875rem` (14 px) minimum | 500 uppercase, letter-spacing **0.10em** (not tighter) | "MEMBER BENEFITS", "01 — BUSINESS TRAVEL" |
+| `caption` | `0.875rem` (14 px) minimum | 400 | Filter labels, badges, metadata |
+| `nav-link` | `0.875rem` (14 px) | 400 / 500 active | Nav items |
 
 **Note on weight:** Cormorant Garamond looks elegant at weight 300;
 Georgia does not. Default Georgia to weight 400. If a heading needs
 to feel lighter, use letter-spacing (`0.01em`) and generous line-height
 (`1.15`) rather than reducing weight.
 
-**Floor:** no text below `0.75rem` (12 px), ever. The prototype has
-text as small as `0.42rem` (≈ 6.7 px) on the Experience page; this
-must not survive into the WordPress build.
+**Floor — updated:** no text below `0.875rem` (14 px), ever. Body
+paragraphs on cream backgrounds use `1.0625rem` (17 px) for
+comfortable reading. The previous 12 px floor was the WCAG bare
+minimum; 14 px is the *legible* floor and what the rebuild should
+target. The prototype has text as small as `0.42rem` (≈ 6.7 px) on
+the Experience page; this must not survive into the WordPress build.
+
+**Letter-spacing on uppercase labels:** keep at `0.10em` or below.
+The prototype's 0.18 – 0.28em spacing on already-tiny text was the
+single biggest readability problem.
 
 ### Italic emphasis — Sentral's signature move
 
@@ -653,7 +663,7 @@ These are not aspirational — they're requirements. Full spec in
 
 - Minimum contrast: **4.5 : 1** on body text, **3 : 1** on large
   text and UI components
-- Minimum font-size: **12 px** (`0.75rem`) — labels included
+- Minimum font-size: **14 px** (`0.875rem`) — labels included; body paragraphs **16–17 px**
 - Visible `:focus-visible` outline on every interactive element
   (forest at 2px, offset 2px)
 - Every informational image has meaningful `alt`; decorative
@@ -746,8 +756,9 @@ For copy-paste into the WordPress theme stylesheet:
   --sans:  Aptos, "Segoe UI", system-ui, -apple-system, sans-serif;
 
   /* Type floors */
-  --fs-min-body:    1rem;     /* 16px */
-  --fs-min-caption: 0.75rem;  /* 12px */
+  --fs-min-body:    1rem;       /* 16px — legible floor */
+  --fs-body-cream:  1.0625rem;  /* 17px — body on cream */
+  --fs-min-caption: 0.875rem;   /* 14px — caption / eyebrow / label floor */
 
   /* Motion */
   --ease: cubic-bezier(0.22, 0.68, 0, 1.2);

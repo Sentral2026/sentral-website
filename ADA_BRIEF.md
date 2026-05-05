@@ -75,20 +75,42 @@ hero image with no dark areas — verify with a pure-white test image.
 
 ---
 
-## 3. Minimum font size
+## 3. Minimum font size — UPDATED FLOOR
 
 **Problem in the prototype:** the Experience page has body text at
 `0.42rem` (≈ 6.7 px). Several pages have labels at `0.52–0.58rem`
 (≈ 8–9 px). These are unreadable for users with normal vision and
 fail accessibility heuristics for low-vision users.
 
-**Floor for the rebuild:**
-- **Body / paragraph text:** minimum **16 px** (`1rem`).
-- **Captions, labels, eyebrows, badges:** minimum **12 px** (`0.75rem`).
-- **Letter-spacing on uppercase labels:** ≤ 0.18 em (the prototype
-  uses up to 0.28 em on tiny fonts, which compounds illegibility).
-- The site must scale gracefully when the user sets browser zoom to
-  200 % — no overflow, no clipped content (WCAG 1.4.4).
+**Floor for the rebuild (revised — these are the legible minimums,
+not WCAG bare minimums):**
+
+| Role | Minimum | Preferred | Notes |
+|---|---|---|---|
+| Body / paragraph on cream | **16 px** (`1rem`) | **17 px** (`1.0625rem`) | The cream-bg is the most read context |
+| Body / paragraph on dark | 16 px | 16 px | High contrast covers smaller |
+| Hero subtitle | 16 px | 17 px | Was 13 px in prototype |
+| Bullet title | 16 px | 16 px | Was 12.5 px in prototype |
+| Bullet description | 15 px | 15 px | Was 11.7 px |
+| Caption / eyebrow / label | **14 px** (`0.875rem`) | 14 px | Was as low as 9 px |
+| Nav link | 14 px | 14 px | |
+| Filter pill / badge | 14 px | 14 px | |
+
+**Letter-spacing on uppercase labels:** keep at `0.10em` or below.
+The prototype's 0.18 – 0.28 em spacing on already-tiny text was the
+single biggest readability problem after font-size.
+
+**The site must scale gracefully when the user sets browser zoom to
+200 %** — no overflow, no clipped content (WCAG 1.4.4).
+
+### Buttons / interactive targets
+
+- **Min height:** 48 × 48 px (WCAG 2.5.5 Target Size — Enhanced,
+  AAA target). Nav-bar CTAs may use 40 px due to the spacing
+  exception, but no smaller.
+- **Padding:** 14–16 px vertical, 28–32 px horizontal
+- **Font-size:** 15 px (`0.9375rem`) minimum, weight 500
+- **Letter-spacing:** 0.04 em (don't stretch out button labels)
 
 ---
 
@@ -225,8 +247,9 @@ live:
   --text-on-dark-muted:  rgba(255, 255, 255, 0.78);  /* min 70% */
 
   /* Typography floors */
-  --fs-min-body:   1rem;     /* 16px */
-  --fs-min-caption: 0.75rem; /* 12px */
+  --fs-min-body:    1rem;       /* 16px legible floor */
+  --fs-body-cream:  1.0625rem;  /* 17px — body on cream surfaces */
+  --fs-min-caption: 0.875rem;   /* 14px floor for eyebrows/labels */
 }
 ```
 
